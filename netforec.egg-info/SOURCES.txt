@@ -12,8 +12,6 @@ netforec.egg-info/entry_points.txt
 netforec.egg-info/requires.txt
 netforec.egg-info/top_level.txt
 netforec/model_artifacts/class_names.json
-netforec/model_artifacts/class_names_1.json
 netforec/model_artifacts/model_config.json
 netforec/model_artifacts/netforc_lstm.pth
 netforec/model_artifacts/netforc_scaler.pkl
-netforec/model_artifacts/netforc_scaler_1.pkl

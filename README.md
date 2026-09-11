@@ -1,9 +1,9 @@
-# NETFORC — AI-Powered Network Attack Forecasting
+# NETFOREC — AI-Powered Network Attack Forecasting
 
 > **SIH Problem Statement 26153** — National Technical Research Organisation (NTRO)  
 > *Theme: Blockchain & Cybersecurity*
 
-An AI-powered CLI tool that learns network traffic behaviour and forecasts potential cyberattacks **before** compromise is completed. NETFORC ingests flow-level network traffic data, extracts temporal features, and uses a trained LSTM-based world model to predict the likelihood and type of malicious activity in the near future.
+An AI-powered CLI tool that learns network traffic behaviour and forecasts potential cyberattacks **before** compromise is completed. NETFOREC ingests flow-level network traffic data, extracts temporal features, and uses a trained LSTM-based world model to predict the likelihood and type of malicious activity in the near future.
 
 ---
 
@@ -21,7 +21,7 @@ An AI-powered CLI tool that learns network traffic behaviour and forecasts poten
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
-│                     NETFORC Pipeline                          │
+│                     NETFOREC Pipeline                          │
 │                                                               │
 │  ┌─────────┐    ┌─────────────┐    ┌──────────┐    ┌───────┐  │
 │  │ Raw CSV │───►│  Feature    │───►│ Standard │───►│ LSTM  │  │
@@ -58,15 +58,7 @@ An AI-powered CLI tool that learns network traffic behaviour and forecasts poten
 git clone https://github.com/your-org/netforec.git
 cd netforec
 
-# 2. Create a virtual environment (recommended)
-python -m venv venv
-
-# On Windows:
-venv\Scripts\activate
-# On Linux/Mac:
-source venv/bin/activate
-
-# 3. Install the package and dependencies
+# 2. Install the package and dependencies
 pip install -e .
 ```
 
@@ -99,7 +91,7 @@ netforec analyze sample_traffic.csv --output result.json --quiet
 ### Sample Output
 
 ```
-──────────────── NETFORC — NETWORK ATTACK FORECAST ────────────────
+──────────────── NETFOREC — NETWORK ATTACK FORECAST ────────────────
 
 History analyzed : previous 30 minutes (2024-02-15 14:00:00 -> 2024-02-15 14:25:00)
 Forecast horizon : next 15 minutes
@@ -165,7 +157,7 @@ netforec/
     ├── cli.py                  # UI layer — Typer commands, formatting, I/O
     ├── pipeline.py             # Orchestrates: feature extraction → scaling → model
     ├── features.py             # Raw CSV → (6, 16) windowed feature sequence
-    ├── model.py                # NETFORCLSTM architecture definition
+    ├── model.py                # NETFORECLSTM architecture definition
     └── model_artifacts/
         ├── netforc_lstm.pth    # Trained LSTM weights (state_dict)
         ├── netforc_scaler.pkl  # StandardScaler fit on training data

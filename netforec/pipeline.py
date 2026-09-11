@@ -48,7 +48,7 @@ import numpy as np
 import torch
 
 from netforec.features import FeatureExtractionError, extract_sequence
-from netforec.model import NETFORCLSTM
+from netforec.model import NETFORECLSTM
 
 ARTIFACTS_DIR = Path(__file__).parent / "model_artifacts"
 
@@ -124,7 +124,7 @@ def _load_artifacts():
 
     _scaler = joblib.load(ARTIFACTS_DIR / "netforc_scaler.pkl")
 
-    model = NETFORCLSTM(
+    model = NETFORECLSTM(
         input_size=_config["input_size"],
         hidden_size=_config["hidden_size"],
         num_layers=_config["num_layers"],

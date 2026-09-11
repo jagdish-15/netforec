@@ -65,7 +65,7 @@ def main(
 
 def _print_table(result: AnalysisResult) -> None:
     console.print()
-    console.rule("[bold]NETFORC — NETWORK ATTACK FORECAST[/bold]")
+    console.rule("[bold]NETFOREC — NETWORK ATTACK FORECAST[/bold]")
     console.print()
 
     console.print(
@@ -109,7 +109,7 @@ def _write_output(result: AnalysisResult, output_path: Path, as_json: bool) -> N
     else:
         # Plain text rendering for non-json output files.
         lines = [
-            "NETFORC — NETWORK ATTACK FORECAST",
+            "NETFOREC — NETWORK ATTACK FORECAST",
             "-" * 34,
             f"History analyzed : previous {result.history_minutes} minutes "
             f"({result.window_start} -> {result.window_end})",
@@ -173,8 +173,20 @@ def analyze(
         if verbose:
             err_console.print(f"[dim][INFO][/dim] {msg}")
 
+    # --verbose already prints its own step-by-step [INFO] lines, which
+    # would visually clash with a spinner sharing the same line. So the
+    # spinner only runs in the non-verbose path; verbose users get the
+    # log lines instead, which already indicate progress.
     try:
-        result = run_pipeline(str(file), log=log)
+        if verbose:
+            result = run_pipeline(str(file), log=log)
+        else:
+            with console.status(
+                "[bold cyan]Analyzing traffic — extracting features, "
+                "running model...[/bold cyan]",
+                spinner="dots",
+            ):
+                result = run_pipeline(str(file), log=log)
     except PipelineError as exc:
         err_console.print(f"[bold red]✗ Analysis failed:[/bold red] {exc}")
         raise typer.Exit(code=1)

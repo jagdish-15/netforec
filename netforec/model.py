@@ -1,7 +1,7 @@
 """
 model.py
 --------
-The NETFORCLSTM architecture, copied verbatim from the ML team's training
+The NETFORECLSTM architecture, copied verbatim from the ML team's training
 notebook (`Final_preprocessed_dataset__3_.ipynb`) so `torch.load` state_dict
 can be applied to a freshly constructed instance of the same class.
 
@@ -16,7 +16,7 @@ import torch
 import torch.nn as nn
 
 
-class NETFORCLSTM(nn.Module):
+class NETFORECLSTM(nn.Module):
     def __init__(
         self,
         input_size: int = 16,
