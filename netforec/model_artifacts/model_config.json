@@ -1,0 +1,9 @@
+{
+    "input_size": 16,
+    "hidden_size": 64,
+    "num_layers": 2,
+    "num_classes": 7,
+    "dropout": 0.2,
+    "history_windows": 6,
+    "future_windows": 3
+}
