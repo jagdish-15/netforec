@@ -21,7 +21,7 @@ An AI-powered CLI tool that learns network traffic behaviour and forecasts poten
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
-│                     NETFOREC Pipeline                          │
+│                     NETFOREC Pipeline                         │
 │                                                               │
 │  ┌─────────┐    ┌─────────────┐    ┌──────────┐    ┌───────┐  │
 │  │ Raw CSV │───►│  Feature    │───►│ Standard │───►│ LSTM  │  │
