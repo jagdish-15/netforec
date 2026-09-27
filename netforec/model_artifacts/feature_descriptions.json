@@ -1,0 +1,122 @@
+{
+  "flow_count": [
+    "Connection attempts",
+    "count"
+  ],
+  "total_bytes": [
+    "Total bytes transferred",
+    "bytes"
+  ],
+  "total_pkts": [
+    "Total packets",
+    "count"
+  ],
+  "mean_bytes_per_flow": [
+    "Average bytes per flow",
+    "bytes"
+  ],
+  "std_bytes_per_flow": [
+    "Variance in flow sizes",
+    "bytes"
+  ],
+  "unique_src_ips": [
+    "Distinct source IPs",
+    "count"
+  ],
+  "unique_dst_ips": [
+    "Distinct destination IPs",
+    "count"
+  ],
+  "unique_src_ports": [
+    "Distinct source ports",
+    "count"
+  ],
+  "unique_dst_ports": [
+    "Destination-port activity",
+    "count"
+  ],
+  "bytes_per_pkt": [
+    "Average packet size",
+    "bytes"
+  ],
+  "tcp_ratio": [
+    "TCP traffic proportion",
+    "ratio"
+  ],
+  "udp_ratio": [
+    "UDP traffic proportion",
+    "ratio"
+  ],
+  "icmp_ratio": [
+    "ICMP traffic proportion",
+    "ratio"
+  ],
+  "syn_ratio": [
+    "SYN traffic",
+    "ratio"
+  ],
+  "ack_ratio": [
+    "ACK traffic",
+    "ratio"
+  ],
+  "fin_ratio": [
+    "FIN traffic",
+    "ratio"
+  ],
+  "rst_ratio": [
+    "RST traffic",
+    "ratio"
+  ],
+  "psh_ratio": [
+    "PSH traffic",
+    "ratio"
+  ],
+  "mean_duration": [
+    "Flow duration",
+    "seconds"
+  ],
+  "std_duration": [
+    "Flow duration variance",
+    "seconds"
+  ],
+  "pkts_per_sec": [
+    "Packets per second",
+    "rate"
+  ],
+  "bytes_per_sec": [
+    "Bytes per second",
+    "rate"
+  ],
+  "dst_port_entropy": [
+    "Port-scan diversity",
+    "entropy"
+  ],
+  "dst_ip_entropy": [
+    "Destination-IP diversity",
+    "entropy"
+  ],
+  "src_ip_entropy": [
+    "Source-IP diversity",
+    "entropy"
+  ],
+  "mean_ttl": [
+    "Mean TTL",
+    "hops"
+  ],
+  "std_ttl": [
+    "TTL variance",
+    "hops"
+  ],
+  "mean_pkts_per_flow": [
+    "Average packets per flow",
+    "count"
+  ],
+  "std_pkts_per_flow": [
+    "Packets per flow variance",
+    "count"
+  ],
+  "unique_protocols": [
+    "Protocol diversity",
+    "count"
+  ]
+}

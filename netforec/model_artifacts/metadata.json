@@ -1,0 +1,62 @@
+{
+  "features": [
+    "flow_count",
+    "total_bytes",
+    "total_pkts",
+    "mean_bytes_per_flow",
+    "std_bytes_per_flow",
+    "unique_src_ips",
+    "unique_dst_ips",
+    "unique_src_ports",
+    "unique_dst_ports",
+    "bytes_per_pkt",
+    "tcp_ratio",
+    "udp_ratio",
+    "icmp_ratio",
+    "syn_ratio",
+    "ack_ratio",
+    "fin_ratio",
+    "rst_ratio",
+    "psh_ratio",
+    "mean_duration",
+    "std_duration",
+    "pkts_per_sec",
+    "bytes_per_sec",
+    "dst_port_entropy",
+    "dst_ip_entropy",
+    "src_ip_entropy",
+    "mean_ttl",
+    "std_ttl",
+    "mean_pkts_per_flow",
+    "std_pkts_per_flow",
+    "unique_protocols"
+  ],
+  "context_length": 15,
+  "horizon": 5,
+  "stride": 3,
+  "n_features": 30,
+  "n_classes": 4,
+  "class_mapping": {
+    "Normal": 0,
+    "Early Kill Chain": 1,
+    "Malicious Activity": 2,
+    "Exfiltration": 3
+  },
+  "id_to_stage": {
+    "0": "Normal",
+    "1": "Early Kill Chain",
+    "2": "Malicious Activity",
+    "3": "Exfiltration"
+  },
+  "stage_merge": {
+    "Normal": "Normal",
+    "Reconnaissance": "Early Kill Chain",
+    "Initial Access": "Early Kill Chain",
+    "Command and Control": "Malicious Activity",
+    "Impact": "Malicious Activity",
+    "Exfiltration": "Exfiltration"
+  },
+  "n_train": 741,
+  "n_val": 140,
+  "n_test": 156
+}

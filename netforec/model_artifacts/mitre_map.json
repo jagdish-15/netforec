@@ -1,0 +1,26 @@
+{
+  "Normal": {
+    "technique": "None",
+    "technique_id": "\u2014",
+    "tactic": "\u2014",
+    "description": "No malicious activity detected."
+  },
+  "Early Kill Chain": {
+    "technique": "Network Service Scanning",
+    "technique_id": "T1046",
+    "tactic": "Reconnaissance / Discovery",
+    "description": "Adversary is probing network services and enumerating hosts/ports."
+  },
+  "Malicious Activity": {
+    "technique": "Application Layer Protocol",
+    "technique_id": "T1071",
+    "tactic": "Command and Control / Impact",
+    "description": "Adversary is using established protocols for C2 or impact operations."
+  },
+  "Exfiltration": {
+    "technique": "Exfiltration Over C2 Channel",
+    "technique_id": "T1041",
+    "tactic": "Exfiltration",
+    "description": "Data is being extracted from the network via C2 or dedicated channels."
+  }
+}
