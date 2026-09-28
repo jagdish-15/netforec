@@ -55,7 +55,7 @@ An AI-powered CLI tool that learns network traffic behaviour and forecasts poten
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-org/netforec.git
+git clone https://github.com/jagdish-15/netforec.git
 cd netforec
 
 # 2. Install the package and dependencies
