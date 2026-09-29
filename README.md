@@ -110,45 +110,70 @@ netforec dashboard
 
 ### Sample Output
 
-```
-───────────────── NETFOREC — NETWORK ATTACK FORECAST ─────────────────
+#### Threat Detected
 
-History analyzed : previous 75 minutes (2026-09-10 09:00:00 -> 2026-09-10 10:15:00)
-Forecast horizon : next 25 minutes
-Flows processed  : 3,000
+<p align="center">
+  <img src="docs/output_threat.svg" alt="netforec analyze — threat detected" />
+</p>
 
-Predicted threat : MALICIOUS ACTIVITY
-Confidence       : 97.00%
+#### Normal Traffic
 
-                 Probability distribution
-┌──────────────────────┬──────────────────────────┐
-│ Class                │              Probability │
-├──────────────────────┼──────────────────────────┤
-│ Malicious Activity   │ ████████████████  97.00% │
-│ Normal               │ █                  1.00% │
-│ Exfiltration         │ █                  1.00% │
-│ Early Kill Chain     │ █                  1.00% │
-└──────────────────────┴──────────────────────────┘
+<p align="center">
+  <img src="docs/output_normal.svg" alt="netforec analyze — normal traffic" />
+</p>
 
-⚠ RISK LEVEL: HIGH
+#### Full Forensic Output (`--verbose --investigate --explain`)
 
-           MITRE ATT&CK Intelligence         
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Tactic    : Exfiltration                  ┃
-┃ Technique : Exfiltration Over C2 Channel  ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+<p align="center">
+  <img src="docs/output_forensic.svg" alt="netforec analyze — full forensic" />
+</p>
 
-            Top Diagnostic Evidence          
-─────────────────────────────────────────────
-• fwd_pkts_s       (Positive) : Spike correlates to data stream offloading.
-• tcp_urg_ratio    (Positive) : Elevated urgent flag count signaling tunnel flow.
-• ttl_variance     (Positive) : Fragmented hop-limits indicating routing obfuscation.
+#### Batch Processing
 
-           Actionable Target Scoping         
-─────────────────────────────────────────────
-Target Source IPs  : 192.168.1.104, 192.168.1.45
-Target Dest Ports  : 443, 8080
-```
+<p align="center">
+  <img src="docs/output_batch.svg" alt="netforec batch — batch processing" />
+</p>
+
+---
+
+## CLI Commands Reference
+
+<p align="center">
+  <img src="docs/help_main.svg" alt="netforec --help" />
+</p>
+
+<details>
+<summary><code>netforec analyze --help</code></summary>
+<br />
+<p align="center">
+  <img src="docs/help_analyze.svg" alt="netforec analyze --help" />
+</p>
+</details>
+
+<details>
+<summary><code>netforec validate --help</code></summary>
+<br />
+<p align="center">
+  <img src="docs/help_validate.svg" alt="netforec validate --help" />
+</p>
+</details>
+
+<details>
+<summary><code>netforec batch --help</code></summary>
+<br />
+<p align="center">
+  <img src="docs/help_batch.svg" alt="netforec batch --help" />
+</p>
+</details>
+
+<details>
+<summary><code>netforec dashboard --help</code></summary>
+<br />
+<p align="center">
+  <img src="docs/help_dashboard.svg" alt="netforec dashboard --help" />
+</p>
+</details>
+
 
 ---
 
@@ -185,15 +210,16 @@ The file must contain **at least 75 minutes** of continuous traffic (15 contiguo
 netforec/
 ├── pyproject.toml              # Package config, dependencies, CLI entry point
 ├── README.md                   # This file
-├── sample_traffic.csv          # Schema-correct demo file (75 min of synthetic flows)
+├── docs/                       # CLI output screenshots (SVG)
+├── test_data/                  # Sample traffic CSVs for smoke-testing
 └── netforec/
     ├── __init__.py
     ├── cli.py                  # UI layer — Typer commands, formatting, I/O
     ├── pipeline.py             # Orchestrates: feature extraction → scaling → model
     ├── features.py             # Raw CSV → (15, 30) windowed feature sequence
     ├── model.py                # PyTorch Temporal Transformer architecture definition
-    ├── validation.py           # Integrity enforcement routines 
-    ├── webapp.py               # Streamlit interactive frontend
+    ├── validation.py           # Integrity enforcement routines
+    ├── webapp.py               # Streamlit interactive frontend (dashboard)
     └── model_artifacts/
         ├── world_model.pt         # Trained Transformer weights (state_dict)
         ├── feature_stats.csv      # CSV-based hardware-agnostic scaler metrics
@@ -246,6 +272,7 @@ Raw per-flow CSV records are aggregated into **5-minute network-state windows**,
 | ML Framework | PyTorch |
 | Data Processing | Pandas, NumPy |
 | Model Serialization | joblib, scikit-learn |
+| Dashboard | Streamlit, Altair |
 | Dataset | CIC-IDS2018 |
 
 ---
