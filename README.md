@@ -5,6 +5,9 @@
 
 An AI-powered CLI tool that learns network traffic behaviour and forecasts potential cyberattacks **before** compromise is completed. NETFOREC ingests flow-level network traffic data, extracts temporal features, and uses a trained Temporal Transformer world model to predict the continuous trajectory and severity of malicious activity in the near future.
 
+[▶️ Watch the NETFOREC Demo Video](https://youtu.be/jOgMBRMrG5k?si=8k4_jWQLCbJHN148)
+[📄 View the NETFOREC Architecture Document](https://tinyurl.com/394nfhm6)
+
 ---
 
 ## Key Features
